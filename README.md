@@ -9,7 +9,7 @@ If You want to install NodeBB at short time;
 <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/45120?s=200&v=4" alt="mongodb" height="50" width="50"/> </a>&nbsp;&nbsp;&nbsp; 
 <a href="https://www.nginx.com" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/1412239?s=200&v=4" alt="nginx" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
 <a href="https://github.com/mongodb-js/compass" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/11214950?s=200&v=4" alt="compass" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
-<a href="https://letsencrypt.org/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/17889013?s=200&v=4" alt="letsencrypt" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
+<a href="https://letsencrypt.org/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/9289019?s=200&v=4" alt="letsencrypt" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
 <a href="https://certbot.eff.org/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/17889013?s=200&v=4" alt="certbot" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
 <a href="https://www.portainer.io/?hsLang=en" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/22225832?s=200&v=4" alt="portainer" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
 <a href="https://docs.docker.com/compose/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/docker/compose/v2/logo.png" alt="docker compose" width="40" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp;
@@ -157,7 +157,7 @@ Edit the `.env` file to change values of
   </tr>
   <tr>
     <td>remotehost</td>
-    <td><code>certbot certonly --webroot --webroot-path /tmp/acme-challenge --rsa-key-size 4096 --non-interactive --agree-tos --no-eff-email --force-renewal --email ${LETSENCRYPT_EMAIL} -d ${DOMAIN_NAME} -d www.${DOMAIN_NAME} -d compass.${DOMAIN_NAME}</code></td>
+    <td><code>certbot certonly --webroot --webroot-path /tmp/acme-challenge --rsa-key-size 4096 --non-interactive --agree-tos --no-eff-email --force-renewal --email ${LETSENCRYPT_EMAIL} -d ${DOMAIN_NAME} -d www.${DOMAIN_NAME} -d ${SUBDOMAIN}.${DOMAIN_NAME} -d compass.${DOMAIN_NAME}</code></td>
   </tr>
 </tbody>
 </table>
@@ -267,11 +267,11 @@ docker compose up -d # Starts services in detached mode (in the background)
 You should see the "Welcome to NodeBB..." page in your browser. If not, please check if your Node.js installation satisfies NodeBB's requirements.
 
 ```
-https://DOMAIN_NAME
+https://SUBDOMAIN.DOMAIN_NAME
 ```
 
 add and/or remove nodebb site folders and files with any ftp client program in ```./nodebb/public``` folder.
-<br />You can also visit `https://DOMAIN_NAME` to access website after starting the containers.
+<br />You can also visit `https://SUBDOMAIN.DOMAIN_NAME` to access website after starting the containers.
 
 #### Database
 
