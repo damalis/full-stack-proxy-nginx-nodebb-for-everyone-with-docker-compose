@@ -6,7 +6,7 @@ If You want to install NodeBB at short time;
 <p align="left">
 <a href="https://nodebb.org/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/4449608?s=200&v=4" alt="nodebb" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
 <a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/docker/docker.png" alt="docker" width="40" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
-<a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/45120?s=200&v=4" alt="mongodb" height="50" width="50"/> </a>&nbsp;&nbsp;&nbsp; 
+<a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/45120?s=200&v=4" alt="mongodb" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
 <a href="https://www.nginx.com" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/1412239?s=200&v=4" alt="nginx" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
 <a href="https://github.com/mongodb-js/compass" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/11214950?s=200&v=4" alt="compass" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
 <a href="https://letsencrypt.org/" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/9289019?s=200&v=4" alt="letsencrypt" height="40" width="40"/> </a>&nbsp;&nbsp;&nbsp; 
