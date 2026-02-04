@@ -1,0 +1,82 @@
+upstream docker_nodebb {
+	server nodebb:4567;
+}
+
+upstream docker_compass {
+	server compass:9090;
+}
+
+server {
+	listen ${NGINX_PORT} default_server;
+	listen [::]:${NGINX_PORT} ipv6only=on default_server;
+	#
+	server_name ${NGINX_HOST} www.${NGINX_HOST};
+	#
+	location ~ ^/.well-known/acme-challenge/ {
+		root /tmp/acme-challenge;
+	}
+	#
+	#location / {
+		#port_in_redirect off;
+		#return 301 https://$host$request_uri;
+	#}
+}
+
+server {
+	#listen 443 ssl;
+	#listen [::]:443 ipv6only=on ssl;
+	#
+	server_name ${NGINX_HOST} www.${NGINX_HOST};
+	#
+	#ssl_certificate /etc/letsencrypt/live/${NGINX_HOST}/fullchain.pem;
+	#ssl_certificate_key /etc/letsencrypt/live/${NGINX_HOST}/privkey.pem;
+	#ssl_trusted_certificate /etc/letsencrypt/live/${NGINX_HOST}/chain.pem;
+	#ssl_dhparam /etc/letsencrypt/ssl-dhparam.pem;
+	include /etc/letsencrypt/options-ssl-nginx.conf;
+		
+	location / {		
+		proxy_pass	http://docker_nodebb;		
+		proxy_set_header	X-Real-IP	$remote_addr;
+		proxy_set_header	X-Forwarded-For	$proxy_add_x_forwarded_for;
+		proxy_set_header	X-Forwarded-Proto	$scheme;		
+		proxy_set_header	Host	$http_host;
+		proxy_http_version	1.1;
+		proxy_set_header	X-Forwarded-Host	$host;
+		proxy_set_header	Upgrade	$http_upgrade;
+		proxy_set_header	Connection	"upgrade";
+		proxy_redirect	off;
+		proxy_set_header	X-NginX-Proxy	true;
+	}   
+	#
+	access_log off;
+	error_log  /var/log/nginx/${NGINX_HOST}.error.log error;
+}
+
+server {
+	#listen 443 ssl;
+	#
+	#server_name compass.${NGINX_HOST};
+	#
+        #ssl_certificate /etc/letsencrypt/live/${NGINX_HOST}/fullchain.pem;
+        #ssl_certificate_key /etc/letsencrypt/live/${NGINX_HOST}/privkey.pem;
+        #ssl_trusted_certificate /etc/letsencrypt/live/${NGINX_HOST}/chain.pem;
+        #ssl_dhparam /etc/letsencrypt/ssl-dhparam.pem;
+        include /etc/letsencrypt/options-ssl-nginx.conf;
+	
+	location / {		
+		proxy_pass	http://docker_compass;
+		proxy_set_header        X-Real-IP       $remote_addr;
+                proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header        X-Forwarded-Proto       $scheme;
+                proxy_set_header        Host    $http_host;
+                proxy_http_version      1.1;
+                proxy_set_header        X-Forwarded-Host        $host;
+                proxy_set_header        Upgrade $http_upgrade;
+                proxy_set_header        Connection      "upgrade";
+                proxy_redirect  off;
+                proxy_set_header        X-NginX-Proxy   true;        
+	}
+	#
+	access_log off;
+	error_log  /var/log/nginx/compass.${NGINX_HOST}.error.log error;
+}
