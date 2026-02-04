@@ -10,7 +10,7 @@ server {
 	listen ${NGINX_PORT} default_server;
 	listen [::]:${NGINX_PORT} ipv6only=on default_server;
 	#
-	server_name ${NGINX_HOST} www.${NGINX_HOST};
+	server_name ${NGINX_HOST};
 	#
 	location ~ ^/.well-known/acme-challenge/ {
 		root /tmp/acme-challenge;
@@ -26,7 +26,7 @@ server {
 	#listen 443 ssl;
 	#listen [::]:443 ipv6only=on ssl;
 	#
-	server_name ${NGINX_HOST} www.${NGINX_HOST};
+	server_name ${NGINX_HOST};
 	#
 	#ssl_certificate /etc/letsencrypt/live/${NGINX_HOST}/fullchain.pem;
 	#ssl_certificate_key /etc/letsencrypt/live/${NGINX_HOST}/privkey.pem;

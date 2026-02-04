@@ -157,7 +157,7 @@ Edit the `.env` file to change values of
   </tr>
   <tr>
     <td>remotehost</td>
-    <td><code>certbot certonly --webroot --webroot-path /tmp/acme-challenge --rsa-key-size 4096 --non-interactive --agree-tos --no-eff-email --force-renewal --email ${LETSENCRYPT_EMAIL} -d ${DOMAIN_NAME} -d www.${DOMAIN_NAME} -d ${SUBDOMAIN}.${DOMAIN_NAME} -d compass.${DOMAIN_NAME}</code></td>
+    <td><code>certbot certonly --webroot --webroot-path /tmp/acme-challenge --rsa-key-size 4096 --non-interactive --agree-tos --no-eff-email --force-renewal --email ${LETSENCRYPT_EMAIL} -d ${SUBDOMAIN}.${DOMAIN_NAME} -d compass.${DOMAIN_NAME}</code></td>
   </tr>
 </tbody>
 </table>
@@ -264,10 +264,16 @@ docker compose up -d # Starts services in detached mode (in the background)
 
 #### NodeBB
 
-You should see the "Welcome to NodeBB..." page in your browser. If not, please check if your Node.js installation satisfies NodeBB's requirements.
+You should see the "Homepage|NodeBB" page in your browser. If not, please check if your Node.js installation satisfies NodeBB's requirements.
 
 ```
 https://SUBDOMAIN.DOMAIN_NAME
+```
+
+login :
+```
+Username: admin
+Password: admin123
 ```
 
 add and/or remove nodebb site folders and files with any ftp client program in ```./nodebb/public``` folder.
@@ -288,6 +294,8 @@ add or remove code in the ```./proxy/templates/proxy.conf.template``` file for c
 #### Compass
 
 You can also visit `https://compass.DOMAIN_NAME` to access Compass after starting the containers.
+
+The authorize screen(htpasswd; username and password) and compass login screen the username 'CW_BASIC_AUTH_USERNAME' and the password 'CW_BASIC_AUTH_PASSWORD' is the same as supplied in the `.env` file.
 
 [MongoDB Compass](https://www.mongodb.com/docs/compass/) is a powerful GUI for querying, aggregating, and analyzing your MongoDB data in a visual environment.
 

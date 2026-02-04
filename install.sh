@@ -467,7 +467,7 @@ then
 	cd ..
 	echo "Ok."
 else
-	ssl_snippet="certbot certonly --webroot --webroot-path \/tmp\/acme-challenge --rsa-key-size 4096 --non-interactive --agree-tos --no-eff-email --force-renewal --email \$\{LETSENCRYPT_EMAIL\} -d \$\{DOMAIN_NAME\} -d www.\$\{DOMAIN_NAME\} -d \$\{SUBDOMAIN\}.\$\{DOMAIN_NAME\} -d compass.\$\{DOMAIN_NAME\}"
+	ssl_snippet="certbot certonly --webroot --webroot-path \/tmp\/acme-challenge --rsa-key-size 4096 --non-interactive --agree-tos --no-eff-email --force-renewal --email \$\{LETSENCRYPT_EMAIL\} -d \$\{SUBDOMAIN\}.\$\{DOMAIN_NAME\} -d compass.\$\{DOMAIN_NAME\}"
 fi
 
 # set parameters in env.example file
@@ -506,7 +506,7 @@ echo "Ok."
 
 db_name=""
 read -p 'Enter Database Name(at least 6 characters): ' db_name
-while [[ $db_name =~ $db_regex ]]
+while [[ ! $db_name =~ $db_regex ]]
 do
 	echo "Try again (cannot contain any of the following characters: /\. \"$)"
 	read -p 'Enter Database Name(at least 6 characters): ' db_name
@@ -619,7 +619,7 @@ if [ -x "$(command -v docker)" ] && [ "$(docker compose version)" ]; then
 			echo "completed setup"
 			echo
 			echo "NodeBB: https://$subdomain.$domain_name"
-			echo "Portainer: https://$domain_name:9001"
+			echo "Portainer: https://$subdomain.$domain_name:9001"
 			echo "Compass: https://compass.$domain_name"
 			echo
 			echo "Ok."
