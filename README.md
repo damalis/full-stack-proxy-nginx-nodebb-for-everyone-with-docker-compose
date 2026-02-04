@@ -295,7 +295,7 @@ add or remove code in the ```./proxy/templates/proxy.conf.template``` file for c
 
 You can also visit `https://compass.DOMAIN_NAME` to access Compass after starting the containers.
 
-The authorize screen(htpasswd; username and password) and compass login screen the username 'CW_BASIC_AUTH_USERNAME' and the password 'CW_BASIC_AUTH_PASSWORD' is the same as supplied in the `.env` file.
+The authorize screen(htpasswd; username and password) and compass login screen the username |`CW_BASIC_AUTH_USERNAME`| and the password |`CW_BASIC_AUTH_PASSWORD`| is the same as supplied in the `.env` file.
 
 [MongoDB Compass](https://www.mongodb.com/docs/compass/) is a powerful GUI for querying, aggregating, and analyzing your MongoDB data in a visual environment.
 
