@@ -264,7 +264,7 @@ docker compose up -d # Starts services in detached mode (in the background)
 
 #### NodeBB
 
-You should see the "Homepage|NodeBB" page in your browser. If not, please check if your Node.js installation satisfies NodeBB's requirements.
+You should see the "Home|NodeBB" page in your browser. If not, please check if your Node.js installation satisfies NodeBB's requirements.
 
 ```
 https://SUBDOMAIN.DOMAIN_NAME
