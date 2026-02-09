@@ -606,14 +606,14 @@ if [ -x "$(command -v docker)" ] && [ "$(docker compose version)" ]; then
 				if sudo [ -d "./certbot/live/$subdomain.$domain_name" ]; then break; fi
 			done
 			echo "Ok."
-			#until [ ! -z `docker compose ps -a --filter "status=running" --services | grep webserver` ]; do
-			#	echo "waiting starting webserver container"
+			#until [ ! -z `docker compose ps -a --filter "status=running" --services | grep proxy` ]; do
+			#	echo "waiting starting proxy container"
 			#	sleep 2s & wait ${!}
-			#	if [ ! -z `docker compose ps -a --filter "status=running" --services | grep webserver` ]; then break; fi
+			#	if [ ! -z `docker compose ps -a --filter "status=running" --services | grep proxy` ]; then break; fi
 			#done
 			echo
-			echo "Loading webserver ssl configuration"
-			docker container restart webserver > /dev/null 2>&1
+			echo "Loading proxy ssl configuration"
+			docker container restart proxy > /dev/null 2>&1
 			echo "Ok."
 			echo
 			echo "completed setup"

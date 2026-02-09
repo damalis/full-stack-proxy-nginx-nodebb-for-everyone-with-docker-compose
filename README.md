@@ -176,10 +176,10 @@ Localhost ssl: Generate Self-signed SSL Certificate with guide [mkcert repositor
 docker compose up -d
 ```
 
-then reloading for webserver ssl configuration
+then reloading for proxy ssl configuration
 
 ```
-docker container restart webserver
+docker container restart proxy
 ```
 
 The containers are now built and running. You should be able to access the NodeBB installation with the configured IP in the browser address. `https://DOMAIN_NAME`.
