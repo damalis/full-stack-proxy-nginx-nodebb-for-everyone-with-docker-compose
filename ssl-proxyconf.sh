@@ -14,7 +14,7 @@ use_lets_encrypt_certificates() {
 	echo "switching proxy to use Let's Encrypt certificate for $1"
 	fdn=$1
 	dn=${fdn#*.}
-	sed '/#location.\/./,/#}/ s/#//; s/#listen/listen/g; s/#ssl_/ssl_/g; s/#server_name/server_name/g; s/compass\.$1/compass.'$dn'/' $3/conf.d/default.conf > $3/conf.d/default.conf.bak
+	sed '/#location.\/./,/#}/ s/#//; s/#listen/listen/g; s/#ssl_/ssl_/g; s/#server_name/server_name/g; s/compass\.'$1'/compass.'$dn'/' $3/conf.d/default.conf > $3/conf.d/default.conf.bak
 }
 
 reload_proxy() {
