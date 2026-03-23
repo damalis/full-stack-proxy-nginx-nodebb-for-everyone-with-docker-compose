@@ -263,11 +263,6 @@ then
 	exit 0
 fi
 
-# fixed; WARNING Memory overcommit must be enabled!
-sudo sysctl -w vm.overcommit_memory=1
-# Apply sysctl params without reboot
-sudo sysctl -p > /dev/null 2>&1
-
 if ps -p 1 -o comm= | grep -q systemd
 then
 	sudo systemctl daemon-reload
