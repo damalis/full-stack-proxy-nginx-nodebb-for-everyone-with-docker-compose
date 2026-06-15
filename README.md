@@ -268,7 +268,7 @@ You should see the "Home|NodeBB" page in your browser. If not, please check if y
 https://SUBDOMAIN.DOMAIN_NAME
 ```
 
-login :
+The admin screen :
 ```
 Username: admin
 Password: admin123
